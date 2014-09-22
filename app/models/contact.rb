@@ -10,8 +10,7 @@ validates_format_of :email, :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{
 validates_length_of :content, :maximum => 500
 def update_spreadsheet
 connection = GoogleDrive.login(Rails.application.secrets.email_provider_username,
-Rails.application.secrets.email_provider_password
-)
+Rails.application.secrets.email_provider_password)
 ss = connection.spreadsheet_by_title('Learn-Rails-Example')
 if ss.nil?
 ss = connection.create_spreadsheet('Learn-Rails-Example')
